@@ -1,0 +1,135 @@
+main{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+#slider {
+    overflow: hidden;
+}
+#slider figure{
+    position: relative;
+    width: 500%;
+    margin: 0;
+    animation: 20s slider infinite;
+}
+
+#slider figure img{
+width: 20%;
+float: left;
+}
+
+@keyframes slider {
+    0% {
+        left: 0;
+    }
+
+    20% {
+        left:0;
+    }
+
+    25% {
+        left:-100%;
+    }
+
+    45% {
+        left:-100%;
+    }
+
+    50% {
+        left:-200%;
+    }
+
+    70% {
+        left:-200%;
+    }
+
+    75% {
+        left:-300%;
+    }
+
+    95% {
+        left:-300%;
+    }
+
+    100%{
+        left: -400%;
+    }
+}
+
+
+.product-container{
+    /* background-color: salmon; */
+    padding: 0% 0%;
+    margin-bottom: 10px;
+    width: calc((100% - 10px) / 2);
+
+}
+.product-container img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-bottom: 2%; */
+    width: 90%;
+    transition: all 250ms;
+}
+
+.product-container:hover img {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.product-container span{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 80%;
+    font-size: .8rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.sizes{
+    display: flex;
+    justify-content: space-around;
+    padding: 2% 10%;
+}
+
+.sizes span{
+    font-size: .7rem;
+    font-weight:normal;
+}
+
+
+@media (min-width: 769px){
+    .product-container{
+        width: calc((100% - 30px) / 4);
+}
+}
+
+#title{
+    border: #FFC947 double 5px;
+    /* background-color:#32E0C4; */
+    width: 100%;
+    text-align: center;
+    font-weight:bolder;
+    padding: 10px 0;
+    margin: 4% 0;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1279px){
+    #title{
+        border: none;
+        text-align: center;
+        font-weight:bolder;
+        font-size: 2rem;
+        padding: 20px 0;
+    }
+
+}
+
+

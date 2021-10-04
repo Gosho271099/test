@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/howllericon-01.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/stryle_form.css">
+
+    <title>Howller</title>
+</head>
+<body>
+
+<!-- HEADER-->
+<%- include('../partials/header') %>
+
+
+<div class="buttons">
+    <div>
+        <button id="btn" type="button" class="button-normal"><a href="#" onclick="add();">Agregar</a></button>
+    </div>
+    <div>
+        <button id="btnEdit" type="button" class="button-normal"><a href="#" onclick="edit();">Editar</a></button>
+    </div>
+</div>
+
+<!--Form Desplegable Add-->
+<div id="add">
+    <h2>Agregar</h2>
+    <div class="form">
+        <div class="tab-content">
+            <form action="/" method="post">
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Titulo "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Precio "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Color "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Categoria "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="file" required autocomplete="off" placeholder="Imagen "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Descripcion "/>
+                </div>
+
+                <div class="buttons">
+                    <div>
+                        <button type="submit" class="button-normal">Agregar</button>
+                    </div>
+                    <div>
+                        <button id="cls-add" type="button" class="button-red"><a style="color: #fff" href="#"
+                                                                                 onclick="closeAdd();">Cancelar</a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Form Desplegable Edit-->
+<div id="edit">
+    <h2>Editar</h2>
+    <div class="form">
+        <div class="tab-content">
+            <form action="/" method="post">
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Titulo "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Precio "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Color "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Categoria "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="file" required autocomplete="off" placeholder="Imagen "/>
+                </div>
+                <div class="field-wrap">
+                    <input type="text" required autocomplete="off" placeholder="Descripcion "/>
+                </div>
+
+                <div class="buttons">
+                    <div>
+                        <button type="submit" class="button-normal">Agregar</button>
+                    </div>
+                    <div>
+                        <button id="cls-add" type="button" class="button-red"><a style="color: #fff" href="#"
+                                                                                 onclick="closeEdit();">Cancelar</a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    document.getElementById('add').style.display = 'none';
+    document.getElementById('edit').style.display = 'none';
+
+    function add() {
+
+        let el = document.getElementById('btn');
+        let frm = document.getElementById('add');
+
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (frm.style.display === 'none') { //hidden  visible
+                frm.style.display = 'block';
+            } else {
+                frm.style.display = 'none';
+            }
+        });
+    }
+
+    function closeAdd() {
+        document.getElementById('add').style.display = 'none';
+    }
+
+    function edit() {
+
+        let el = document.getElementById('btnEdit');
+        let frm = document.getElementById('edit');
+
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (frm.style.display === 'none') { //hidden  visible
+                frm.style.display = 'block';
+            } else {
+                frm.style.display = 'none';
+            }
+        });
+    }
+
+    function closeEdit() {
+        document.getElementById('edit').style.display = 'none';
+    }
+
+</script>
+
+</body>
+
+<!-- FOOTER-->
+<%- include('../partials/footer') %>
+
+</html>

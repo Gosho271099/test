@@ -1,0 +1,66 @@
+<header>
+    <nav>
+        <div class="openMenu"><i class="fa fa-bars"></i></div>
+        <a href="/" class="logo"> <img src="/img/logos/00 logotipo-01.svg" alt=""> </a>
+        <div class="icons-container">
+            <a href="/login" class="kk" id="user"> <i class="fas fa-user"></i> </a>
+            <a href="/products/cart/5" class="kk" id="cart"> <i class="fas fa-shopping-cart"></i> </a>
+        </div>
+
+        <ul class="mainMenu">
+            <li><a href="/products/hombres">Hombres</a></li>
+            <li><a href="/products/mujeres">Mujeres</a></li>
+            <li><a href="/products/girls">Niñas</a></li>
+            <li><a href="/products/boys">Niños</a></li>
+            <li><a href="/products/ofertas">Ofertas</a></li>
+            <li><a href="/products/create">vender</a></li>
+            <li><a href="/products/todos">Todo</a></li>
+            <div class="closeMenu"><i class="fa fa-times"></i></div>
+            <span class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </span>
+        </ul>
+    </nav>
+    <div class="bar">
+        <div id="secc-venta">
+            <a href="/products/hombres"> <span> Hombres </span> </a>
+            <a href="/products/mujeres"> <span> Mujeres </span> </a>
+            <a href="/products/girls"> <span> Niñas </span> </a>
+            <a href="/products/boys"> <span> Niños</span> </a>
+            <a href="/products/ofertas"> <span> Ofertas</span> </a>
+            <a href="/products/create"> <span> verder </span> </a>
+            <a href="/products/todos"> <span> Todo </span> </a>
+        </div>
+
+        <span class="cont-srch"> 
+            <form action="/search" method="GET" class= "cont-srch">
+                <input class="search-txt" type="text" name="keywords" placeholder="BUSCAR" required> 
+                <button type="submit"><i class="fas fa-search"></i></a></button>
+            </form>
+            
+        </span>
+
+    </div>
+
+    <script>
+        const mainMenu = document.querySelector('.mainMenu');
+        const closeMenu = document.querySelector('.closeMenu');
+        const openMenu = document.querySelector('.openMenu');
+
+
+        openMenu.addEventListener('click', show);
+        closeMenu.addEventListener('click', cerrar);
+
+        function show() {
+            mainMenu.style.display = 'flex';
+            mainMenu.style.top = '0';
+        }
+
+        function cerrar() {
+            mainMenu.style.top = '-100%';
+        }
+    </script>
+
+</header>

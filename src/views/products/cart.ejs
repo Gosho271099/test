@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/howllericon-01.png">
+
+    <title>Howller</title>
+</head>
+<body>
+<!-- HEADER-->
+<%- include('../partials/header') %>
+
+<main>
+
+    <div class="product-container">
+
+        <img src="<%= playeraC.img %>" alt=""><!--/img/products/01.jpg-->
+
+        <span><%= playeraC.titulo %></span>
+
+        <div class="size">
+            <span> CH </span>
+        </div>
+
+        <div class="info">
+            <div class="tag">
+                <span> Color:</span>
+            </div>
+
+            <div class="value">
+                <span> <%= playeraC.color %> </span>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="tag">
+                <span> Talla:</span>
+            </div>
+
+            <div class="value">
+                <span> Mediana </span>
+            </div>
+
+        </div>
+
+        <div class="info">
+            <div class="tag">
+                <span>Precio:</span>
+            </div>
+
+            <div class="value">
+                <span id="right"> $<%= playeraC.precio %> </span>
+            </div>
+
+        </div>
+
+        <div class="info">
+            <div class="tag">
+                <span>Cantidad:</span>
+            </div>
+
+            <div class="value">
+                <span> slider </span>
+            </div>
+
+        </div>
+        <a id="bote" href="#"> <img src="/img/icons/001-trash-01.svg"> </a>
+
+    </div>
+
+
+    <div class="contenedor-01">
+        <div class="contenedor-02">
+            <p> ¡Te faltan $000 para envío gratis!</p>
+            <img src="/img/icons/001-delivery-truck-01.svg" alt="">
+        </div>
+        <div class="contenedor-03">
+            <p>Resumen</p>
+            <div class="datos-art">
+                <p id="inf">Total de articulos</p>
+                <p id="num-a"> 1</p>
+            </div>
+
+            <div class="total-pagar">
+                <p id="inf">Total</p>
+                <p id="num-a">$<%= playeraC.precio %></p>
+            </div>
+
+            <div id="btn-pedido">
+                <button type="submit">Finalizar pedido</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="contenedor-04">
+        <button type="submit">continuar comprando</button>
+        
+        <button type="submit">Actualizar carrito</button>
+    </div>
+
+
+    <!-- PARA RESOLUCIONES DE 1024px -->
+
+    <div class="contenedor-1024">
+
+        <div class="contenedor-A">
+            <div class="contenedor-B">
+                <img src="<%= playeraC.img %>" alt="">
+            </div>
+            <div class="contenedor-C">
+                <div class="nom">
+                    <%= playeraC.titulo %>
+                </div>
+                <div class="info">
+                    <div class="vaar">
+                        TALLA:
+                    </div>
+                    <div class="vaalue">
+                        CH
+                    </div>
+                </div>
+
+                <div class="info">
+                    <div class="vaar">
+                        COLOR:
+                    </div>
+                    <div class="vaalue">
+                        <%= playeraC.color %>
+                    </div>
+                </div>
+
+            </div>
+            <div class="contenedor-D">
+                <div class="nom">
+                    PRECIO
+                </div>
+                <div class="moneda">
+                    $<%= playeraC.precio %>
+                </div>
+            </div>
+            <div class="contenedor-D">
+                <div class="nom">
+                    CANTIDAD
+                </div>
+                <div class="moneda">
+                    1
+                </div>
+            </div>
+            <div class="contenedor-F">
+                <a href="#"> <img src="/img/icons/001-trash-01.svg"> </a>
+            </div>
+
+        </div>
+
+        <div class="contenedor-x">
+            <div class="contenedor-1">
+                <div class="contenedor-2">
+                    <p> ¡Te faltan $000 para envío gratis!</p>
+                    <img src="/img/icons/001-delivery-truck-01.svg" alt="">
+                </div>
+                <div class="contenedor-3">
+                    <p>Resumen</p>
+                    <div class="daatos-art">
+                        <p id="inff">Total de articulos</p>
+                        <p id="num-aa"> 1</p>
+                    </div>
+
+                    <div class="totaal-pagar">
+                        <p id="inff">Total</p>
+                        <p id="num-aa">$<%= playeraC.precio %></p>
+                    </div>
+
+                    <div id="botn-pedido">
+                        <button type="submit">Finalizar pedido</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contenedor-4">
+
+
+            <button type="menu">Continuar comprando</button>
+
+
+            <button type="submit">Actualizar carrito</button>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+
+<%- include('../partials/footer') %>
+
+</html>

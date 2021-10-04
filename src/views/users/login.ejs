@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/howllericon-01.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/style_login.css">
+
+    <title>Howller</title>
+</head>
+<body>
+<!-- HEADER-->
+<%- include('../partials/header') %>
+
+<!--FORMULARIO-->
+<div class="form">
+
+    <ul class="tab-group">
+        <li class="tab active"><a href="#login" onclick="mostarlogin();">Iniciar sesión</a></li>
+        <li class="tab"><a href="#signup" onclick="mostarregister();">Registrarse</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="login">
+
+            <form action="/" method="post">
+
+                <div class="field-wrap">
+                    <input type="email" required autocomplete="off" placeholder="Correo electrónico *"/>
+                </div>
+
+                <div class="field-wrap">
+                    <input type="password" required autocomplete="off" placeholder="Contraseña *"/>
+                </div>
+
+                <!--Agregando checkbox  !!!Falta darle estilo-->
+                <div class="field-wrap">
+                    <input  type="checkbox"  autocomplete="off" /> <p>RECUÉRDAME</p>
+                    
+                </div>
+
+                <p class="forgot"><a href="#">¿Olviste tu Contraseña</a></p>
+
+                <button class="button button-block">Ingresar</button>
+
+            </form>
+
+        </div>
+        <div id="signup">
+
+            <form action="/" method="post">
+
+                <div class="top-row">
+                    <!--Agregando campo para foto de perfil-->
+                    <div class="field-wrap">
+                        <label>Foto de perfil (Opcional)</label>
+                        <input type="file" name="myImage" accept="image/*"  />
+                    </div>
+
+
+                    <div class="field-wrap">
+                        <input type="text" required autocomplete="off" placeholder="Nombre*"/>
+                    </div>
+
+                    <div class="field-wrap">
+                        <input type="text" required autocomplete="off" placeholder="Apellidos*"/>
+                    </div>
+
+                </div>
+
+                <div class="field-wrap">
+                    <input type="email" required autocomplete="off" placeholder="Correo electronico*"/>
+                </div>
+
+                <div class="field-wrap">
+                    <input type="password" required autocomplete="off" placeholder="Contraseña"/>
+                </div>
+                <div class="field-wrap">
+                    <input type="password" required autocomplete="off" placeholder="Confirmar contraseña"/>
+                </div>
+                <div class="field-wrap">
+                    <input class="check" type="checkbox"/>
+                    <p>Declaro que he leído y acepto la Política de Privacidad y los Términos y Condiciones de
+                        HOWLLER.</p>
+                </div>
+
+                <button type="submit" class="button button-block">Registrarse</button>
+
+            </form>
+
+        </div>
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
+<script type="text/javascript">
+    function mostarregister() {
+        document.getElementById('signup').style.display = 'block'
+        document.getElementById('login').style.display = 'none'
+    }
+
+    function mostarlogin() {
+        document.getElementById('signup').style.display = 'none'
+        document.getElementById('login').style.display = 'block'
+    }
+</script>
+
+</body>
+
+<%- include('../partials/footer') %>
+
+</html>

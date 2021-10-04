@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/det_pro.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/icons/howllericon-01.png">
+
+    <title>Howller</title>
+</head>
+<body>
+<div class="head-fixed">
+
+    <!-- HEADER-->
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="conteinerproduct">
+            <div class="cont_img_mas">
+
+                <div class="colum_img_mas">
+                    <img src="<%= playera.img %>" alt="" onclick="myfunction(this)">
+                </div>
+
+                <div class="colum_img_mas">
+                    <img src="<%= playera.det01 %>" alt="" onclick="myfunction(this)">
+
+                </div>
+                <div class="colum_img_mas">
+                    <img src="<%= playera.det02 %>" alt="" onclick="myfunction(this)">
+
+                </div>
+                <div class="colum_img_mas">
+                    <img src="<%= playera.det03 %>" alt="" onclick="myfunction(this)">
+
+                </div>
+                <div class="colum_img_mas">
+                    <img src="<%= playera.det04 %>" alt="" onclick="myfunction(this)">
+                </div>
+
+            </div>
+            <div class="cont_img_principal">
+                <div class="colum_img_prin">
+                    <img id="imageBox" src="<%= playera.img %>" alt="">
+                </div>
+            </div>
+
+            <script>
+                function myfunction(smallImg) {
+                    var fullImg = document.getElementById("imageBox");
+                    fullImg.src = smallImg.src;
+                }
+            </script>
+
+            <!-- display productos en móviles -->
+            <div class="container-slider">
+                <div class="slider" id="slider">
+                    <div class="slider__section"><img class="slider__img" src="<%= playera.img %>" alt=""></div>
+                    <div class="slider__section"><img class="slider__img" src="<%= playera.det01 %>" alt=""></div>
+                    <div class="slider__section"><img class="slider__img" src="<%= playera.det02 %>" alt=""></div>
+                    <div class="slider__section"><img class="slider__img" src="<%= playera.det03 %>" alt=""></div>
+                    <div class="slider__section"><img class="slider__img" src="<%= playera.det04 %>" alt=""></div>
+
+                </div>
+                <div class="slider__btn slider__btn--right" id="btn-right"><i class="fas fa-chevron-circle-right"></i>
+                </div>
+                <div class="slider__btn slider__btn--left" id="btn-left"><i class="fas fa-chevron-circle-left"></i>
+                </div>
+            </div>
+            <script>
+                const slider = document.querySelector("#slider");
+                let sliderSection = document.querySelectorAll(".slider__section");
+                let sliderSectionLast = sliderSection[sliderSection.length - 1];
+
+                const btnLeft = document.querySelector("#btn-left");
+                const btnRight = document.querySelector("#btn-right");
+
+                slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+
+                function Next() {
+                    let sliderSectionFirst = document.querySelectorAll(".slider__section") [0];
+                    slider.style.marginLeft = "-200%";
+                    slider.style.transition = "all 0.5s";
+                    setTimeout(function () {
+                        slider.style.transition = "none";
+                        slider.insertAdjacentElement('beforeend', sliderSectionFirst);
+                        slider.style.marginLeft = "-100%";
+                    }, 500);
+                }
+
+                function Prev() {
+                    let sliderSection = document.querySelectorAll(".slider__section");
+                    let sliderSectionLast = sliderSection[sliderSection.length - 1];
+                    slider.style.marginLeft = "0";
+                    slider.style.transition = "all 0.5s";
+                    setTimeout(function () {
+                        slider.style.transition = "none";
+                        slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+                        slider.style.marginLeft = "-100%";
+                    }, 500);
+                }
+
+                btnRight.addEventListener('click', function () {
+                    Next();
+                });
+
+                btnLeft.addEventListener('click', function () {
+                    Prev();
+                });
+            </script>
+
+            <!-- /display productos en móviles -->
+
+
+            <div class="descipcion_product">
+                <div class="h2_p">
+                    <h1><%= playera.titulo %></h1>
+                    <h2>$<%= playera.precio %></h2>
+                </div>
+                <div class="tallas">
+                    <div class="ch">CH</div>
+                    <div class="m">M</div>
+                    <div class="g">G</div>
+                    <div class="eg">EG</div>
+
+                </div>
+                <button id="open">
+                    Guia de tallas
+                    <i class="fa fa-table" aria-hidden="true"></i>
+                </button>
+
+                <div class="modal_container" id="modal_container">
+                    <div class="modal">
+                        <img src="/img/products/guia_tallas.jpg" alt="">
+
+                    </div>
+                </div>
+
+                <script>
+                    const open = document.getElementById('open');
+                    const modal_container = document.getElementById('modal_container');
+                    const close = document.getElementById('modal_container');
+
+                    open.addEventListener('click', () => {
+                        modal_container.classList.add('show');
+                    });
+
+                    close.addEventListener('click', () => {
+                        modal_container.classList.remove('show');
+                    });
+                </script>
+
+                <div>
+
+                    <a href="/products/cart/<%= playera.id %>">
+                        <button class="button">AGREGAR AL CARRITO</button>
+                    </a>
+
+                </div>
+
+                <div class="edit-delete">
+                    <!--<a href="/products/edit/<%= playera.id %>">
+                        <button class="button-edit">Editar</button>
+                    </a>-->
+                    <button id="button_edit">Editar</button>
+                    <button id="button_delete">Eliminar</button>
+                </div>
+                <!--Edit-->
+                <div class="modale_containere" id="modale_containere_edit">
+                    <div class="modaleEdit">
+                        <button id="cancelare-edit">X</button>
+                        <h1>Editar Producto</h1>
+
+                        <div class="modificar">
+                            <form action="/products/edit/<%= playera.id %>?_method=PATCH" method="POST"
+                                  enctype="multipart/form-data">
+
+                                <div class="ctrl-modificar product ">
+                                    <input type="text" id="titulo" name="titulo" placeholder="Nombre del producto"
+                                           value="<%= playera.titulo %>"
+                                           required>
+                                </div>
+                                <div class="ctrl-modificar descrip">
+                                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción"
+                                           value="<%= playera.descripcion %>" required>
+                                </div>
+                                <div class="ctrl-modificar imagen">
+                                    <label for="img" class="ctrl-modificar custom-file-upload">
+                                        <i class="fa fa-cloud-upload"></i> Imagen del producto
+                                    </label>
+                                    <input id="img" name="img" type="file" accept="image/png, image/jpeg, image/jpg"/>
+                                </div>
+                                <div class="ctrl-modificar categoria">
+                                    <select class="ctrl-agregar selectalla" name="categoria" id="categoria" required>
+                                        <option value="0"><%= playera.categoria %></option>
+                                        <option value="hombres">Hombres</option>
+                                        <option value="mujeres">Mujeres</option>
+                                        <option value="ninas">Niñas</option>
+                                        <option value="ninos">Niños</option>
+                                        <option value="ofertas">Ofertas</option>
+                                    </select>
+                                </div>
+
+                                <!--  <div class="ctrl-modificar talla">
+                                      <input type="text" id="talla" name="talla" placeholder="Talla" required>
+                                  </div>-->
+                                <div class="ctrl-modificar color">
+                                    <input type="text" id="color" name="color" placeholder="Color"
+                                           value="<%= playera.color %>"
+                                           required>
+                                </div>
+                                <!-- <div class="ctrl-modificar marca">
+                                    <input type="text" id="status" name="status" placeholder="Status"
+                                           value="<%= playera.status %>"
+                                           required>
+                                </div>-->
+                                <div class="ctrl-modificar marca">
+                                    <select class="ctrl-agregar selectalla" name="status" id="status" required>
+                                        <option value="0"><%= playera.status %></option>
+                                        <option value="en oferta">En Oferta</option>
+                                        <option value="nuevo">Nuevo</option>
+                                        <option value="mujeres">Mujeres</option>
+                                        <option value="mas vendido">Más vendido</option>
+                                    </select>
+                                </div>
+
+                                <div class="ctrl-modificar precio">
+                                    <input type="number" id="precio" name="precio" placeholder="precio"
+                                           value="<%= playera.precio %>"
+                                           required>
+                                </div>
+
+
+                                <div class="ctrl-modificar"><!--btns-container / ctrl-modificar-->
+                                    <input class="btn-modificar" type="submit" value="Modificar">
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+                    //Edit
+                    const openeEdit = document.getElementById('button_edit');
+                    const modale_containere_edit = document.getElementById('modale_containere_edit');
+                    const cancelare_edit = document.getElementById('cancelare-edit');
+
+                    openeEdit.addEventListener('click', () => {
+                        modale_containere_edit.classList.add('showmeEdit');
+                    });
+                    cancelare_edit.addEventListener('click', () => {
+                        modale_containere_edit.classList.remove('showmeEdit');
+                    });
+                </script>
+                <!--Delete-->
+                <div class="modale_containere" id="modale_containere">
+                    <div class="modale">
+                        <h1>¡atención!</h1>
+                        <p>
+                            ¿Estas seguro que deseas eliminar este producto?
+                            Una vez eliminado no podrá recuperarse.
+                        </p>
+                        <div class="btns-container">
+                            <button id="cancelare"> cancelar</button>
+
+                            <form action="/products/delete/<%= playera.id %>?_method=DELETE" method="POST">
+                                <button type="submit" id="closee"> eliminar producto</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    //Delete
+                    const opene = document.getElementById('button_delete');
+                    const modale_containere = document.getElementById('modale_containere');
+                    const cancelare = document.getElementById('cancelare');
+
+                    opene.addEventListener('click', () => {
+                        modale_containere.classList.add('showme');
+                    });
+
+                    cancelare.addEventListener('click', () => {
+                        modale_containere.classList.remove('showme');
+                    });
+                </script>
+
+
+                <div class="h2_p">
+                    <h2>DESCRIPCIÓN</h2>
+                    <p><%= playera.descripcion %></p>
+                </div>
+
+                <div class="compartir">
+                    <h2>COMPARTE</h2>
+                    <a href="#"> <img style="text-align: center ;" src="/img/icons/facebook.svg" alt=""> </a>
+                    <a href="#"> <img style="text-align: center ;" src="/img/icons/instagram.svg" alt=""> </a>
+                    <a href="#"> <img style="text-align: center ;" src="/img/icons/twitter.svg" alt=""> </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="conteinerproduct">
+
+            <h3>Productos relacionados</h3>
+
+
+            <div class="cont_img_mas2">
+                <div class="colum_img_mas2">
+                    <img src="/img/products/02/02-1.jpg" alt="">
+
+                </div>
+                <div class="colum_img_mas2">
+                    <img src="/img/products/03/03-1.jpg" alt="">
+
+                </div>
+                <div class="colum_img_mas2">
+                    <img src="/img/products/04/04-1.jpg" alt="">
+
+                </div>
+                <div class="colum_img_mas2">
+                    <img src="/img/products/05/05-1.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+<%- include('../partials/footer') %>
+
+</html>
